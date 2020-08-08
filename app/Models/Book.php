@@ -13,8 +13,23 @@ class Book extends Model
      */
     protected $fillable = [
         'title',
-        'description',
-        'price',
-        'author_id',
+        'secondaryTitle',
+        'isbn',
+        'clasification',
+        'year',
+        'tome',
+        'edition',
+        'extension',
+        'dimensions',
+        'accompaniment',
+        'observations',
+        'chapters',
+        'summary',
+        'keywords'
     ];
+
+    public function copies()
+    {
+        return $this->hasMany('App\Models\BookCopy','book_id');
+    }
 }
