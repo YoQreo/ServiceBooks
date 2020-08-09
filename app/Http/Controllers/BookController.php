@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Book as Book ; 
-use App\Traits\ApiResponse;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
-  use ApiResponse;
+  use ApiResponser;
     
     /**
      * Return books list
@@ -17,7 +18,14 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return $this->successResponse($books); 
+
+        foreach($books as $book){
+            $authors = DB::table('books_authors')->where('book_id', $book->id)->get();
+            $book['authors'] = $authors;
+            $editorials = DB::table('books_editorials')->where('book_id', $book->id)->get();
+            $book['editorials'] = $editorials;
+        }
+        return $this->successResponse($books, Response::HTTP_OK, 'S002'); 
     }
 
      /**
