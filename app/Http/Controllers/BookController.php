@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Book as Book ; 
+use App\Models\BookCopy as BookCopy ; 
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -91,13 +92,28 @@ class BookController extends Controller
      * Removes an existing book
      * @return Illuminate\Http\Response
      */
-    public function destroy($book)
+    public function destroy($id)
     {
-        $book = Book::findOrFail($book);
+        $book = Book::findOrFail($id);
 
-        $book->delete();
+        $copies = BookCopy::where("book_id", $id)->where("availability", 3)->first();
 
-        return $this->successResponse($book);
+		if(!empty($copies))
+			return $this->errorResponse("There are copies in borrowed status",Response::HTTP_UNPROCESSABLE_ENTITY,'E003');
+
+		$book -> delete();
+
+		$book_response = [
+            'id' => $book->id,
+            'title' => $book->title,
+            'secondaryTitle' => $book->secondaryTitle,
+			'isbn' => $book->isbn,
+			'clasification' => $book->clasification, 
+			'year' => $book->year
+		];
+
+
+        return $this->successResponse($book_response, Response::HTTP_OK, 'S003');
     }
 
 }
