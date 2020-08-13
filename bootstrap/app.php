@@ -58,7 +58,7 @@ $app->singleton(
 */
 
 $app->middleware([
-    App\Http\Middleware\AuthenticateAccess::class
+    //App\Http\Middleware\AuthenticateAccess::class
 ]);
 
 // $app->routeMiddleware([
