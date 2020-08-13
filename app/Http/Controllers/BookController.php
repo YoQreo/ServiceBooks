@@ -19,7 +19,14 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return $this->successResponse($books); 
+
+        foreach($books as $book){
+            $authors = DB::table('books_authors')->where('book_id', $book->id)->get();
+            $book['authors'] = $authors;
+            $editorials = DB::table('books_editorials')->where('book_id', $book->id)->get();
+            $book['editorials'] = $editorials;
+        }
+        return $this->successResponse($books, Response::HTTP_OK, 'S002'); 
     }
 
      /**

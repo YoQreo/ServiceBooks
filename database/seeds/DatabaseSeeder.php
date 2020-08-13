@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Book;
+use App\Models\BookCopy;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Book::class, 150)->create();
+        factory(Book::class, 40)->create();
+        factory(BookCopy::class, 150)->create();
+        $this->call('AuthorsTableSeeder');
+        $this->call('EditorialsTableSeeder');
     }
 }
