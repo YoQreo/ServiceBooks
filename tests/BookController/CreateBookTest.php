@@ -25,8 +25,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
@@ -74,8 +74,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['title' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -99,8 +99,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['isbn' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -124,8 +124,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['clasification' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -149,8 +149,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['year' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -174,8 +174,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['extension' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -199,8 +199,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['chapters' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -224,8 +224,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['summary' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -249,8 +249,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['keywords' => NULL]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -273,8 +273,8 @@ class CreateBookTest extends TestCase
         // Creamos un libro con el campo authors vacío
         $book = factory('App\Models\Book')->make();
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -298,8 +298,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> NULL,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -321,8 +321,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => NULL]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -343,8 +343,8 @@ class CreateBookTest extends TestCase
         // Creamos un libro con el campo editorials vacío
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -368,8 +368,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> NULL,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -391,8 +391,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => NULL]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -419,8 +419,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['title' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -444,8 +444,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['secondaryTitle' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -469,8 +469,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['isbn' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -494,8 +494,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['clasification' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -519,8 +519,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['year' => 'abc']);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -544,8 +544,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['tome' => 'abc']);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -569,8 +569,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['edition' => 'abc']);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -594,8 +594,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['extension' => 'abc']);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -619,8 +619,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['dimensions' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -644,8 +644,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['accompaniment' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -669,8 +669,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['observations' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -694,8 +694,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['chapters' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -719,8 +719,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['summary' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -744,8 +744,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make(['keywords' => 123]);
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -769,8 +769,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 'abc','type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -792,8 +792,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 'abc']];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -815,8 +815,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 'abc','type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -838,8 +838,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 'abc']];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -861,8 +861,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => 123,'availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => 123,'availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -884,8 +884,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','volume' => 'abc','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','volume' => 'abc','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -907,8 +907,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 'abc','acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 'abc','acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -930,8 +930,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 'abc',
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 'abc',
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -953,8 +953,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionSource' => 123,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionSource' => 123,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -976,8 +976,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionPrice' => 'abc',
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionPrice' => 'abc',
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -999,8 +999,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionDate' => 123,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,'acquisitionDate' => 123,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1022,8 +1022,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 123,'printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 123,'printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1045,8 +1045,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 'abc','barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 'abc','barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1068,8 +1068,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => 123,'stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => 123,'stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1091,8 +1091,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 'abc']];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 'abc'];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1119,8 +1119,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 3]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1142,8 +1142,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 3]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1165,8 +1165,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 5,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 5,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1188,8 +1188,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 4,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 4,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1211,8 +1211,8 @@ class CreateBookTest extends TestCase
         $book = factory('App\Models\Book')->make();
         $book['authors'] = [['author_id'=> 1,'type' => 1]];
         $book['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 3,'barcode' => '123','stand_id' => 1]];
+        $book['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 3,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'),$book->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1241,6 +1241,7 @@ class CreateBookTest extends TestCase
         DB::table('books_editorials')->insert([['book_id' => $book1->id, 'editorial_id' => 1, 'type' => 1]]);
         // Creamos un libro con isbn repetido
         $book2 = factory('App\Models\Book')->make(['isbn' => $book1->isbn]);
+        $book2['copy'] = factory('App\Models\BookCopy')->make(['book_id' => $book2->id]);
         $book2['authors'] = [['author_id'=> 1,'type' => 1]];
         $book2['editorials'] = [['editorial_id'=> 1,'type' => 1]];
         //comprobar codigo de respuesta
@@ -1269,6 +1270,7 @@ class CreateBookTest extends TestCase
         DB::table('books_editorials')->insert([['book_id' => $book1->id, 'editorial_id' => 1, 'type' => 1]]);
         // Creamos un libro con clasification repetido
         $book2 = factory('App\Models\Book')->make(['clasification' => $book1->clasification]);
+        $book2['copy'] = factory('App\Models\BookCopy')->make(['book_id' => $book2->id]);
         $book2['authors'] = [['author_id'=> 1,'type' => 1]];
         $book2['editorials'] = [['editorial_id'=> 1,'type' => 1]];
         //comprobar codigo de respuesta
@@ -1299,8 +1301,8 @@ class CreateBookTest extends TestCase
         $book2 = factory('App\Models\Book')->make();
         $book2['authors'] = [['author_id'=> 1,'type' => 1]];
         $book2['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book2['copies'] = [[ 'incomeNumber' => $copy->incomeNumber,'availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1]];
+        $book2['copy'] = [ 'incomeNumber' => $copy->incomeNumber,'availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => '123','stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'), $book2->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -1327,8 +1329,8 @@ class CreateBookTest extends TestCase
         $book2 = factory('App\Models\Book')->make();
         $book2['authors'] = [['author_id'=> 1,'type' => 1]];
         $book2['editorials'] = [['editorial_id'=> 1,'type' => 1]];
-        $book2['copies'] = [['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
-                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => $copy->barcode,'stand_id' => 1]];
+        $book2['copy'] = ['incomeNumber' => '1','availability' => 1,'acquisitionModality' => 1,
+                            'publicationLocation' => 'Peru','printType' => 1,'barcode' => $copy->barcode,'stand_id' => 1];
         //comprobar codigo de respuesta
         $this->post(route('createBook'), $book2->toArray())
         ->assertResponseStatus(Response::HTTP_UNPROCESSABLE_ENTITY);

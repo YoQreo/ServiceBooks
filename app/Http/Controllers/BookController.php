@@ -36,17 +36,69 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'title' => 'required|max:255',
-            'description' => 'required|max:255',
-            'price' => 'required|min:1',
-            'author_id' => 'required|min:1',
-        ];
+            'title' => 'string|required|max:200',
+            'secondaryTitle' => 'string|nullable|max:200',
+            'isbn' => 'string|required|max:13|unique:books',
+            'clasification' => 'string|required|max:20|unique:books',
+            'year' => 'integer|required|date_format:Y',
+            'tome' => 'integer|nullable|min:1',
+            'edition' => 'integer|nullable|min:1',
+            'extension' => 'integer|required|min:1',
+            'dimensions' => 'string|nullable|max:10',
+            'accompaniment' => 'string|nullable|max:20',
+            'observations' => 'string|nullable|max:200',
+            'chapters' => 'string|required|max:200',
+            'summary' => 'string|required|max:200',
+            'keywords' => 'string|required|max:200',
+            'authors' => 'required',
+            'authors.*.author_id' => 'integer|required|min:1',
+            'authors.*.type' => 'integer|required|in:1,2',
+            'editorials' => 'required',
+			'editorials.*.editorial_id' => 'integer|required|min:1',
+            'editorials.*.type' => 'integer|required|in:1,2',
+            'copy' => 'required', 
+            'copy.incomeNumber' => 'string|required|max:15|unique:book_copies,incomeNumber',
+            'copy.volume' => 'integer|nullable|min:1',
+            'copy.availability' => 'integer|required|in:1,2,3,4',
+            'copy.acquisitionModality' => 'integer|required|in:1,2,3',
+            'copy.acquisitionSource' => 'string|nullable|max:30',
+            'copy.acquisitionPrice' => 'integer|nullable|min:1',
+            'copy.acquisitionDate' => 'string|nullable|max:15',
+            'copy.publicationLocation' => 'string|required|max:30',
+            'copy.printType' => 'integer|required|in:1,2',
+            'copy.barcode' => 'string|required|max:13|unique:book_copies,barcode',
+            'copy.stand_id' => 'integer|required|min:1'
+		];
+		$this->validate($request, $rules);
+		DB::beginTransaction();
+		$book = Book::create($request->all());
 
-        $this->validate($request, $rules);
+		$authors = collect($request->authors)->map(function ($author) use ($book) {
+			$validate = DB::table('books_authors')->insert(['book_id' => $book->id, 'author_id' => $author['author_id'], 'type' => $author['type']]);
+			if($validate){
+				$author = DB::table('books_authors')->orderBy('id', 'desc')->first();
+				return $author;
+			}
+        });
+        
+        $editorials = collect($request->editorials)->map(function ($editorial) use ($book) {
+			$validate = DB::table('books_editorials')->insert(['book_id' => $book->id, 'editorial_id' => $editorial['editorial_id'], 'type' => $editorial['type']]);
+			if($validate){
+				$editorial = DB::table('books_editorials')->orderBy('id', 'desc')->first();
+				return $editorial;
+			}
+		});
+        
+        $copy = BookCopy::create($request->copy);
+	    $book->copies()->save($copy);
 
-        $book = Book::create($request->all());
+		DB::commit();
 
-        return $this->successResponse($book, Response::HTTP_CREATED);
+        $book['authors']=$authors;
+        $book['editorials']=$editorials;
+		$book['copies']=$copy;
+
+		return $this->successResponse($book, Response::HTTP_CREATED, 'S004');
     }
     
     /**
