@@ -13,7 +13,7 @@
 
 $factory->define(App\Models\BookCopy::class, function (Faker\Generator $faker) {
     return [
-        'incomeNumber'=> $faker->ean13,
+        'incomeNumber'=> $faker->unique()->ean13,
         'volume'=> $faker->numberBetween(1,3),
         'availability'=> 1,
         'acquisitionModality'=> $faker->numberBetween(1,3),
@@ -22,7 +22,7 @@ $factory->define(App\Models\BookCopy::class, function (Faker\Generator $faker) {
         'acquisitionDate'=> null,
         'publicationLocation'=> "Peru",
         'printType'=> $faker->numberBetween(1,2),
-        'barcode'=> $faker->ean13,
+        'barcode'=> $faker->unique()->ean13,
         'stand_id'=> $faker->numberBetween(1,20),
         'book_id'=> $faker->numberBetween(1,40),
         

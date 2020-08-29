@@ -16,7 +16,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 $router->get('/books', ['as' => 'showAllBooks', 'uses' => 'BookController@index']);
-$router->post('/books', 'BookController@store');
+$router->post('/books', ['as' => 'createBook', 'uses' => 'BookController@store']);
 $router->get('/books/{book}', 'BookController@show');
 $router->put('/books/{book}', 'BookController@update');
 $router->patch('/books/{book}', 'BookController@update');
