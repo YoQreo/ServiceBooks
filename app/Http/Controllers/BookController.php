@@ -116,28 +116,103 @@ class BookController extends Controller
      * Update the information of an existing book
      * @return Illuminate\Http\Response
      */
-    public function update(Request $request, $book)
+    public function update(Request $request, $id)
     {
+        $book = Book::findOrFail($id);
         $rules = [
-            'title' => 'max:255',
-            'description' => 'max:255',
-            'price' => 'min:1',
-            'author_id' => 'min:1',
+            'title' => 'string|max:200',
+            'secondaryTitle' => 'string|nullable|max:200',
+            'isbn' => 'string|max:13|unique:books',
+            'clasification' => 'string|max:20|unique:books',
+            'year' => 'integer|date_format:Y',
+            'tome' => 'integer|nullable|min:1',
+            'edition' => 'integer|nullable|min:1',
+            'extension' => 'integer|min:1',
+            'dimensions' => 'string|nullable|max:10',
+            'accompaniment' => 'string|nullable|max:20',
+            'observations' => 'string|nullable|max:200',
+            'chapters' => 'string|max:200',
+            'summary' => 'string|max:200',
+            'keywords' => 'string|max:200',
+            'authors.*.author_id' => 'integer|min:1',
+            'authors.*.type' => 'integer|in:1,2',
+			'editorials.*.editorial_id' => 'integer|min:1',
+            'editorials.*.type' => 'integer|in:1,2'
         ];
+        
+        $this->validate($request,$rules);
 
-        $this->validate($request, $rules);
+		$book->fill($request->all());
 
-        $book = Book::findOrFail($book);
+        //Validación autores
+        $validate1 = true;
+        if(!empty($request->authors)){
+            $authors = DB::table('books_authors')->select('author_id','type')->where('book_id', $id)->get();
+            foreach($authors as $author) {
+                $authors1[$author->author_id] = $author->type;
+            }
+            foreach($request->authors as $author) {
+                $authors2[$author['author_id']] = $author['type'];
+            }
+            $validate1 = empty(array_diff_assoc($authors1, $authors2)) && empty(array_diff_assoc($authors2, $authors1));
+        }
+        
 
-        $book->fill($request->all());
-
-        if ($book->isClean()) {
-            return $this->errorResponse('At least one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
+        //Validación editoriales
+        $validate2 = true;
+        if(!empty($request->editorials)){
+            $editorials = DB::table('books_editorials')->select('editorial_id','type')->where('book_id', $id)->get();
+            foreach($editorials as $editorial) {
+                $editorials1[$editorial->editorial_id] = $editorial->type;
+            }
+            foreach($request->editorials as $editorial) {
+                $editorials2[$editorial['editorial_id']] = $editorial['type'];
+            }
+            $validate2 = empty(array_diff_assoc($editorials1, $editorials2)) && empty(array_diff_assoc($editorials2, $editorials1));
         }
 
-        $book->save();
+        if($book->isClean() && $validate1 && $validate2){
+            return $this->errorResponse('At least one value must change',
+            Response::HTTP_UNPROCESSABLE_ENTITY, 'E002');
+		}
+		
+		DB::beginTransaction();
+		$book->save();
+		
+		if(!$validate1){
+			DB::table('books_authors')->where('book_id', $id)->delete();
+			$authors = collect($request->authors)->map(function ($author) use ($id) {
+				$validate = DB::table('books_authors')->insert(['book_id' => $id, 'author_id' => $author['author_id'], 'type' => $author['type']]);
+				if($validate){
+					$author = DB::table('books_authors')->orderBy('id', 'desc')->first();
+					return $author;
+				}
+			});
+		}
+		else{
+			$authors = DB::table('books_authors')->where('book_id', $id)->get();
+        }
 
-        return $this->successResponse($book);
+        if(!$validate2){
+			DB::table('books_editorials')->where('book_id', $id)->delete();
+			$editorials = collect($request->editorials)->map(function ($editorial) use ($id) {
+				$validate = DB::table('books_editorials')->insert(['book_id' => $id, 'editorial_id' => $editorial['editorial_id'], 'type' => $editorial['type']]);
+				if($validate){
+					$editorial = DB::table('books_editorials')->orderBy('id', 'desc')->first();
+					return $editorial;
+				}
+			});
+		}
+		else{
+			$editorials = DB::table('books_editorials')->where('book_id', $id)->get();
+		}		
+		
+		DB::commit();
+
+        $book['authors'] = $authors;
+        $book['editorials'] = $editorials;
+
+        return $this->successResponse($book, Response::HTTP_CREATED, 'S005');
     }
 
     /**
