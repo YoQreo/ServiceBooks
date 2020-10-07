@@ -18,6 +18,6 @@ $router->get('/', function () use ($router) {
 $router->get('/books', ['as' => 'showAllBooks', 'uses' => 'BookController@index']);
 $router->post('/books', ['as' => 'createBook', 'uses' => 'BookController@store']);
 $router->get('/books/{book}', 'BookController@show');
-$router->put('/books/{book}', 'BookController@update');
-$router->patch('/books/{book}', 'BookController@update');
+$router->put('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
+$router->patch('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
 $router->delete('/books/{id}', ['as' => 'deleteBook', 'uses' => 'BookController@destroy']);
