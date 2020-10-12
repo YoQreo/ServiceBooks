@@ -243,4 +243,35 @@ class BookController extends Controller
         return $this->successResponse($book_response, Response::HTTP_OK, 'S003');
     }
 
+    /**
+     * Return Books list paginatation
+     *
+     * @return  Illuminate\Http\Response
+     */
+    public function pagination(Request $request){
+        $total = Book::all()->count();
+        $rules = [
+            'page'  =>'integer|min:1', 
+            'limit' =>"integer|min:1|max:$total",
+        ];
+
+        $this->validate($request,$rules);
+        
+        $page_max = ceil($total/$request->limit);
+
+        $this->validate($request,['page' => "integer|max:$page_max"]);
+        
+        $books = Book::select("id","title","clasification")->paginate($request->limit); 
+
+        $books->getCollection()->transform(function ($book) {
+            $book['authors'] = DB::table('books_authors')->where('book_id', $book->id)->select('author_id','type')->get();
+            $book['editorials'] = DB::table('books_editorials')->where('book_id', $book->id)->select('editorial_id','type')->get();
+            $book['copies'] = BookCopy::where('book_id', $book->id)->count();
+            return $book;
+        });
+
+        return $this->successResponse($books, Response::HTTP_OK, 'S002');
+         
+    }
+
 }
