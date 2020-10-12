@@ -21,3 +21,4 @@ $router->get('/books/{book}', 'BookController@show');
 $router->put('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
 $router->patch('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
 $router->delete('/books/{id}', ['as' => 'deleteBook', 'uses' => 'BookController@destroy']);
+$router->get('/books/pagination', ['as' => 'paginationBook', 'uses' =>'BookController@pagination']);
