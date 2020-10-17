@@ -21,3 +21,5 @@ $router->get('/books/{book}', 'BookController@show');
 $router->put('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
 $router->patch('/books/{id}', ['as' => 'updateBook', 'uses' => 'BookController@update']);
 $router->delete('/books/{id}', ['as' => 'deleteBook', 'uses' => 'BookController@destroy']);
+
+$router->post('/books/{id}/copies', ['as' => 'createBookCopy', 'uses' => 'BookCopyController@store']);
